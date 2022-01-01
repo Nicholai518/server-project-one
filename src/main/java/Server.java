@@ -30,6 +30,9 @@ public class Server {
 		ServerSocket serverSocket = null;
 		serverSocket = new ServerSocket(1234);
 
+		// confirmation that server is up
+		System.out.println("Server running.");
+		System.out.println(" ");
 
 		// Another difference is having two while loops
 		// The first while loop is to ensure the server is constantly running.
@@ -67,6 +70,13 @@ public class Server {
 					// this affects the current client
 					// the first while loop still runs, waiting for the next client
 					if(messageFromClient.equalsIgnoreCase("Shut down")){
+						System.out.println(" ");
+						System.out.println("------------------------------------");
+						System.out.println("Client Session has ended.");
+						System.out.println("Server now waiting for new client.");
+						System.out.println("-----------------------------------");
+						System.out.println("");
+
 						break;
 					}
 				}
