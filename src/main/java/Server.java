@@ -1,15 +1,13 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    // code is very similar to client-project-one
+	// code is very similar to client-project-one
 	public static void main(String[] args) throws IOException {
 
 		// create socket class
@@ -38,7 +36,7 @@ public class Server {
 		// The first while loop is to ensure the server is constantly running.
 		// The second while loop is to ensure that, once the client is connected, the server is constantly interacting
 		// with the client until the client disconnects. ( Sends the command "Shut down"
-		while(true){
+		while (true) {
 
 			try {
 				// The accept() method of the ServerSocket class waits for a client connection
@@ -53,7 +51,7 @@ public class Server {
 				bufferedWriter = new BufferedWriter(outputStreamWriter);
 
 				// second while loop
-				while(true){
+				while (true) {
 					String messageFromClient = bufferedReader.readLine();
 
 					// output message to the console
@@ -69,7 +67,7 @@ public class Server {
 					// checking for shut down message, this will break while loop
 					// this affects the current client
 					// the first while loop still runs, waiting for the next client
-					if(messageFromClient.equalsIgnoreCase("Shut down")){
+					if (messageFromClient.equalsIgnoreCase("Shut down")) {
 						System.out.println(" ");
 						System.out.println("------------------------------------");
 						System.out.println("Client Session has ended.");
@@ -87,7 +85,6 @@ public class Server {
 				outputStreamWriter.close();
 				bufferedReader.close();
 				bufferedWriter.close();
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
