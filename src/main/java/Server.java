@@ -30,7 +30,6 @@ public class Server {
 
 		// confirmation that server is up
 		System.out.println("Server running.");
-		System.out.println(" ");
 
 		// Another difference is having two while loops
 		// The first while loop is to ensure the server is constantly running.
@@ -43,6 +42,10 @@ public class Server {
 				// (the program won't advance until a client is connected).
 				// Once connected, a Socket object is returned that can be used to communicate with the client
 				socket = serverSocket.accept();
+
+				System.out.println("");
+				System.out.println("A client is now connected to the server.");
+				System.out.println("");
 
 				inputStreamReader = new InputStreamReader(socket.getInputStream());
 				outputStreamWriter = new OutputStreamWriter(socket.getOutputStream());
